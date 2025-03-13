@@ -37,8 +37,8 @@ public class Task implements Serializable, Cloneable {
             throw new IllegalArgumentException("Time cannot be negative");
         }
         if (interval < 1) {
-            log.error("interval < than 1");
-            throw new IllegalArgumentException("interval should me > 1");
+            log.error("interval is < than 1");
+            throw new IllegalArgumentException("interval should be >= 1");
         }
         this.title = title;
         this.start = start;
@@ -103,13 +103,12 @@ public class Task implements Serializable, Cloneable {
             if (current.before(start)){
                 return start;
             }
-            if ((current.after(start) || current.equals(start)) && (current.before(end) || current.equals(end))){
-                for (long i = start.getTime(); i <= end.getTime(); i += interval*1000){
+            for (long i = start.getTime(); i <= end.getTime(); i += interval*1000){
                     if (current.equals(timeAfter)) return new Date(timeAfter.getTime()+interval*1000);
                     if (current.after(timeBefore) && current.before(timeAfter)) return timeBefore;//return timeAfter
                     timeBefore = timeAfter;
                     timeAfter = new Date(timeAfter.getTime()+ interval*1000);
-                }
+
             }
         }
         if (!isRepeated() && current.before(time) && isActive()){
