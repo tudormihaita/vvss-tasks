@@ -15,25 +15,25 @@ import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import tasks.model.Task;
 import tasks.services.DateService;
-import tasks.services.TaskIO;
+import tasks.repository.TaskIO;
 import tasks.services.TasksService;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class NewEditController {
+public class TaskEditController {
 
     private static Button clickedButton;
 
-    private static final Logger log = Logger.getLogger(NewEditController.class.getName());
+    private static final Logger log = Logger.getLogger(TaskEditController.class.getName());
 
     public static void setClickedButton(Button clickedButton) {
-        NewEditController.clickedButton = clickedButton;
+        TaskEditController.clickedButton = clickedButton;
     }
 
     public static void setCurrentStage(Stage currentStage) {
-        NewEditController.currentStage = currentStage;
+        TaskEditController.currentStage = currentStage;
     }
 
     private static Stage currentStage;
@@ -156,11 +156,11 @@ public class NewEditController {
             currentTask = null;
         }
         TaskIO.rewriteFile(tasksList);
-        Controller.editNewStage.close();
+        TaskViewController.editNewStage.close();
     }
     @FXML
     public void closeDialogWindow(){
-        Controller.editNewStage.close();
+        TaskViewController.editNewStage.close();
     }
 
     private Task collectFieldsData(){

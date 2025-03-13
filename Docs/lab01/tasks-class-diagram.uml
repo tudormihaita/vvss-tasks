@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/tudormihaita/IdeaProjects/vvss-tasks/src/main/java/tasks</OriginalElement>
+  <nodes>
+    <node x="988.1401179468847" y="1503.3294977010546">tasks.model.LinkedTaskList</node>
+    <node x="958.4700059655634" y="1941.4342800500524">tasks.repository.TaskIO</node>
+    <node x="1165.399452659671" y="568.2450326800098">tasks.model.ArrayTaskList.ArrayTaskListIterator</node>
+    <node x="302.818410492688" y="1394.1614574711657">tasks.services.DateService</node>
+    <node x="639.3315707952057" y="1124.078248799649">tasks.services.TasksService</node>
+    <node x="1015.8658283902474" y="1160.5468608469055">tasks.model.LinkedTaskList.Node</node>
+    <node x="1109.5313066632948" y="866.863132979264">tasks.model.TaskList</node>
+    <node x="302.7601019039606" y="1092.8375055780757">tasks.controller.Notificator</node>
+    <node x="1416.3972183825397" y="813.3893548963496">tasks.model.ArrayTaskList</node>
+    <node x="694.2896298957703" y="1423.851726866067">tasks.view.Main</node>
+    <node x="1250.2241687281462" y="1274.544383975663">tasks.model.LinkedTaskList.LinkedTaskListIterator</node>
+    <node x="1317.6807226768608" y="1612.7632789646375">tasks.controller.TaskInfoController</node>
+    <node x="1493.1765061557167" y="-13.252217991687303">tasks.model.Task</node>
+    <node x="-100.35180925248858" y="1585.5584033799912">tasks.controller.TaskViewController</node>
+    <node x="309.2346733460219" y="1754.2437750384556">tasks.controller.TaskEditController</node>
+    <node x="659.6615474793126" y="925.6223167719743">tasks.utils.TasksOperations</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="tasks.controller.TaskEditController" target="tasks.services.TasksService" relationship="TO_ONE">
+      <point x="162.5003266539781" y="2.2496154429063608E-4" />
+      <point x="665.0" y="2182.7439999999997" />
+      <point x="665.0" y="1364.0" />
+      <point x="796.832" y="1364.0" />
+      <point x="4.29204794272664E-4" y="104.49975120035094" />
+    </edge>
+    <edge source="tasks.model.LinkedTaskList" target="tasks.model.LinkedTaskList.LinkedTaskListIterator" relationship="CREATE">
+      <point x="100.50000000000011" y="-111.56649770105457" />
+      <point x="1362.2241687281462" y="1580.263" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="tasks.model.TaskList" target="tasks.model.LinkedTaskList" relationship="CREATE">
+      <point x="-2.3913066632946993" y="115.99986702073602" />
+      <point x="1224.64" y="1133.078" />
+      <point x="1002.5" y="1133.078" />
+      <point x="1002.5" y="1438.547" />
+      <point x="963.0" y="1438.547" />
+      <point x="963.0" y="1691.829" />
+      <point x="-100.50011794688476" y="-4.977010546554084E-4" />
+    </edge>
+    <edge source="tasks.controller.TaskEditController" target="tasks.services.DateService" relationship="CREATE">
+      <point x="-162.4996733460219" y="-25.743775038455624" />
+      <point x="289.0" y="2157.0" />
+      <point x="289.0" y="1721.352" />
+      <point x="467.818" y="1721.352" />
+      <point x="-4.1049268799042693E-4" y="128.49954252883424" />
+    </edge>
+    <edge source="tasks.model.ArrayTaskList" target="tasks.model.TaskList" relationship="GENERALIZATION">
+      <point x="-89.39721838253968" y="200.49964510365044" />
+      <point x="1427.5" y="1245.0" />
+      <point x="1235.14" y="1245.0" />
+      <point x="8.1086933367053" y="115.99986702073602" />
+    </edge>
+    <edge source="tasks.controller.TaskEditController" target="tasks.model.Task" relationship="TO_MANY">
+      <point x="-162.4996733460219" y="2.2496154429063608E-4" />
+      <point x="273.0" y="2182.7439999999997" />
+      <point x="273.0" y="784.0" />
+      <point x="1628.177" y="784.0" />
+      <point x="4.938442832553847E-4" y="380.5002179916873" />
+    </edge>
+    <edge source="tasks.controller.TaskViewController" target="tasks.model.Task" relationship="TO_MANY">
+      <point x="171.49980925248857" y="-4.033799912122049E-4" />
+      <point x="273.0" y="1918.058" />
+      <point x="273.0" y="784.0" />
+      <point x="1628.177" y="784.0" />
+      <point x="4.938442832553847E-4" y="380.5002179916873" />
+    </edge>
+    <edge source="tasks.model.LinkedTaskList" target="tasks.model.LinkedTaskList.Node" relationship="CREATE">
+      <point x="-30.000117946884757" y="-188.5" />
+      <point x="-42.72582839024744" y="140.5" />
+    </edge>
+    <edge source="tasks.model.LinkedTaskList" target="tasks.model.TaskList" relationship="GENERALIZATION">
+      <point x="100.49988205311536" y="-96.56649770105457" />
+      <point x="1491.724" y="1595.263" />
+      <point x="1491.724" y="1245.0" />
+      <point x="1235.14" y="1245.0" />
+      <point x="8.1086933367053" y="115.99986702073602" />
+    </edge>
+    <edge source="tasks.model.ArrayTaskList" target="tasks.model.Task" relationship="CREATE">
+      <point x="13.283781617460363" y="200.49964510365044" />
+      <point x="1530.181" y="1911.0" />
+      <point x="1643.177" y="1911.0" />
+      <point x="15.000493844283255" y="380.5002179916873" />
+    </edge>
+    <edge source="tasks.model.LinkedTaskList" target="tasks.model.LinkedTaskList.Node" relationship="TO_ONE">
+      <point x="-15.000117946884757" y="-188.5" />
+      <point x="-27.725828390247443" y="140.5" />
+    </edge>
+    <edge source="tasks.model.ArrayTaskList" target="tasks.model.Task" relationship="TO_MANY">
+      <point x="-2.1838253974237887E-4" y="-200.50035489634956" />
+      <point x="1516.897" y="784.0" />
+      <point x="1628.177" y="784.0" />
+      <point x="4.938442832553847E-4" y="380.5002179916873" />
+    </edge>
+    <edge source="tasks.model.LinkedTaskList.LinkedTaskListIterator" target="tasks.model.LinkedTaskList" relationship="INNER_CLASS">
+      <point x="-112.00016872814626" y="-3.8397566299863684E-4" />
+      <point x="1204.366" y="1367.0439999999999" />
+      <point x="1204.366" y="1469.0" />
+      <point x="1088.6399999999999" y="1469.0" />
+      <point x="-1.1794688475674775E-4" y="-188.50049770105466" />
+    </edge>
+    <edge source="tasks.repository.TaskIO" target="tasks.model.Task" relationship="CREATE">
+      <point x="-5.965563332210877E-6" y="-284.5002800500524" />
+      <point x="1105.47" y="1911.0" />
+      <point x="1643.177" y="1911.0" />
+      <point x="15.000493844283255" y="380.5002179916873" />
+    </edge>
+    <edge source="tasks.controller.TaskViewController" target="tasks.services.DateService" relationship="TO_ONE">
+      <point x="171.49980925248857" y="324.9995966200088" />
+      <point x="276.0" y="2243.058" />
+      <point x="276.0" y="2420.0" />
+      <point x="-117.852" y="2420.0" />
+      <point x="-117.852" y="1522.661" />
+      <point x="-165.00041049268796" y="-4.5747116575967084E-4" />
+    </edge>
+    <edge source="tasks.controller.Notificator" target="tasks.model.Task" relationship="TO_MANY">
+      <point x="-133.50010190396063" y="4.944219243725456E-4" />
+      <point x="273.0" y="1209.338" />
+      <point x="273.0" y="784.0" />
+      <point x="1628.177" y="784.0" />
+      <point x="4.938442832553847E-4" y="380.5002179916873" />
+    </edge>
+    <edge source="tasks.model.ArrayTaskList.ArrayTaskListIterator" target="tasks.model.ArrayTaskList" relationship="INNER_CLASS">
+      <point x="107.5" y="0.0" />
+      <point x="1475.6765061557167" y="660.7450326800098" />
+      <point x="-41.220712226823025" y="-200.5" />
+    </edge>
+    <edge source="tasks.view.Main" target="tasks.model.ArrayTaskList" relationship="CREATE">
+      <point x="116.50037010422966" y="-86.02272686606716" />
+      <point x="1220.14" y="1490.329" />
+      <point x="1220.14" y="1153.547" />
+      <point x="1381.0" y="1153.547" />
+      <point x="1381.0" y="1013.889" />
+      <point x="-100.50021838253974" y="-3.5489634956320515E-4" />
+    </edge>
+    <edge source="tasks.controller.TaskEditController" target="tasks.model.Task" relationship="CREATE">
+      <point x="162.5003266539781" y="15.00022496154429" />
+      <point x="940.97" y="2197.7439999999997" />
+      <point x="940.97" y="1911.0" />
+      <point x="1643.177" y="1911.0" />
+      <point x="15.000493844283255" y="380.5002179916873" />
+    </edge>
+    <edge source="tasks.repository.TaskIO" target="tasks.model.LinkedTaskList" relationship="CREATE">
+      <point x="-147.00000596556333" y="-2.8005005242448533E-4" />
+      <point x="919.79" y="2225.934" />
+      <point x="919.79" y="1761.744" />
+      <point x="963.0" y="1761.744" />
+      <point x="963.0" y="1691.829" />
+      <point x="-100.50011794688476" y="-4.977010546554084E-4" />
+    </edge>
+    <edge source="tasks.controller.TaskViewController" target="tasks.services.DateService" relationship="CREATE">
+      <point x="171.49980925248857" y="238.9415966200088" />
+      <point x="289.0" y="2157.0" />
+      <point x="289.0" y="1721.352" />
+      <point x="467.818" y="1721.352" />
+      <point x="-4.1049268799042693E-4" y="128.49954252883424" />
+    </edge>
+    <edge source="tasks.model.TaskList" target="tasks.model.ArrayTaskList" relationship="CREATE">
+      <point x="117.49969333670515" y="-1.3297926398081472E-4" />
+      <point x="1381.0" y="982.863" />
+      <point x="1381.0" y="1013.889" />
+      <point x="-100.50021838253974" y="-3.5489634956320515E-4" />
+    </edge>
+    <edge source="tasks.model.ArrayTaskList" target="tasks.model.ArrayTaskList.ArrayTaskListIterator" relationship="CREATE">
+      <point x="-56.220712226823025" y="-200.5" />
+      <point x="1460.6765061557167" y="675.7450326800098" />
+      <point x="107.5" y="15.0" />
+    </edge>
+    <edge source="tasks.model.LinkedTaskList.Node" target="tasks.model.LinkedTaskList" relationship="INNER_CLASS">
+      <point x="1.7160975255592348E-4" y="140.50013915309455" />
+      <point x="1101.366" y="1469.0" />
+      <point x="1088.6399999999999" y="1469.0" />
+      <point x="-1.1794688475674775E-4" y="-188.50049770105466" />
+    </edge>
+    <edge source="tasks.view.Main" target="tasks.services.TasksService" relationship="CREATE">
+      <point x="1.0423701042296898" y="-152.5" />
+      <point x="15.000429204794273" y="104.5" />
+    </edge>
+    <edge source="tasks.services.DateService" target="tasks.services.TasksService" relationship="TO_ONE">
+      <point x="-4.1049268799042693E-4" y="-128.50045747116576" />
+      <point x="467.818" y="1364.0" />
+      <point x="796.832" y="1364.0" />
+      <point x="4.29204794272664E-4" y="104.49975120035094" />
+    </edge>
+    <edge source="tasks.controller.TaskEditController" target="tasks.services.DateService" relationship="TO_ONE">
+      <point x="-162.4996733460219" y="237.25622496154438" />
+      <point x="-117.852" y="2420.0" />
+      <point x="-117.852" y="1522.661" />
+      <point x="-165.00041049268796" y="-4.5747116575967084E-4" />
+    </edge>
+    <edge source="tasks.view.Main" target="tasks.controller.Notificator" relationship="CREATE">
+      <point x="0.0" y="152.5" />
+      <point x="810.7896298957703" y="2628.7437750384556" />
+      <point x="-132.85199999999998" y="2628.7437750384556" />
+      <point x="-132.85199999999998" y="1194.338" />
+      <point x="-133.5" y="-14.999505578075627" />
+    </edge>
+    <edge source="tasks.services.TasksService" target="tasks.model.ArrayTaskList" relationship="TO_ONE">
+      <point x="157.50042920479427" y="-2.4879964905721863E-4" />
+      <point x="986.0" y="1228.578" />
+      <point x="986.0" y="1116.363" />
+      <point x="-100.50021838253974" y="102.47364510365043" />
+    </edge>
+    <edge source="tasks.services.TasksService" target="tasks.utils.TasksOperations" relationship="CREATE">
+      <point x="48.329976684106896" y="-104.5" />
+      <point x="0.0" y="68.5" />
+    </edge>
+    <edge source="tasks.controller.TaskViewController" target="tasks.services.TasksService" relationship="TO_ONE">
+      <point x="-1.9074751141801016E-4" y="-332.5004033799912" />
+      <point x="71.148" y="1364.0" />
+      <point x="796.832" y="1364.0" />
+      <point x="4.29204794272664E-4" y="104.49975120035094" />
+    </edge>
+    <edge source="tasks.view.Main" target="tasks.model.ArrayTaskList" relationship="TO_ONE">
+      <point x="116.50037010422966" y="-100.85172686606711" />
+      <point x="986.0" y="1475.5" />
+      <point x="986.0" y="1116.363" />
+      <point x="-100.50021838253974" y="102.47364510365043" />
+    </edge>
+    <edge source="tasks.view.Main" target="tasks.services.TasksService" relationship="TO_ONE">
+      <point x="-116.49962989577034" y="2.731339328647664E-4" />
+      <point x="665.0" y="1576.3519999999999" />
+      <point x="665.0" y="1364.0" />
+      <point x="796.832" y="1364.0" />
+      <point x="4.29204794272664E-4" y="104.49975120035094" />
+    </edge>
+    <edge source="tasks.model.LinkedTaskList.Node" target="tasks.model.Task" relationship="TO_ONE">
+      <point x="-9.33482839024748" y="-140.49986084690545" />
+      <point x="1092.031" y="784.0" />
+      <point x="1628.177" y="784.0" />
+      <point x="4.938442832553847E-4" y="380.5002179916873" />
+    </edge>
+    <edge source="tasks.utils.TasksOperations" target="tasks.model.Task" relationship="TO_MANY">
+      <point x="4.5252068741774565E-4" y="-68.50031677197421" />
+      <point x="845.162" y="784.0" />
+      <point x="1628.177" y="784.0" />
+      <point x="4.938442832553847E-4" y="380.5002179916873" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.4524971836274878" showDependencies="true" x="825.4999999999998" y="1317.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

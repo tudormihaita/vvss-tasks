@@ -1,4 +1,4 @@
-package tasks.services;
+package tasks.repository;
 
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;

@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import tasks.model.Task;
 import tasks.services.DateService;
-import tasks.services.TaskIO;
+import tasks.repository.TaskIO;
 import tasks.services.TasksService;
 import tasks.view.Main;
 
@@ -24,8 +24,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Controller {
-    private static final Logger log = Logger.getLogger(Controller.class.getName());
+public class TaskViewController {
+    private static final Logger log = Logger.getLogger(TaskViewController.class.getName());
     public ObservableList<Task> tasksList;
     TasksService service;
     DateService dateService;
@@ -83,14 +83,14 @@ public class Controller {
     @FXML
     public void showTaskDialog(ActionEvent actionEvent){
         Object source = actionEvent.getSource();
-        NewEditController.setClickedButton((Button) source);
+        TaskEditController.setClickedButton((Button) source);
 
         try {
             editNewStage = new Stage();
-            NewEditController.setCurrentStage(editNewStage);
+            TaskEditController.setCurrentStage(editNewStage);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/new-edit-task.fxml"));
             Parent root = loader.load();//getClass().getResource("/fxml/new-edit-task.fxml"));
-            NewEditController editCtrl = loader.getController();
+            TaskEditController editCtrl = loader.getController();
             editCtrl.setService(service);
             editCtrl.setTasksList(tasksList);
             editCtrl.setCurrentTask((Task)mainTable.getSelectionModel().getSelectedItem());
