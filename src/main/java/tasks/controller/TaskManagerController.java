@@ -24,8 +24,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class TaskViewController {
-    private static final Logger log = Logger.getLogger(TaskViewController.class.getName());
+public class TaskManagerController {
+    private static final Logger log = Logger.getLogger(TaskManagerController.class.getName());
     public ObservableList<Task> tasksList;
     TasksService service;
     DateService dateService;

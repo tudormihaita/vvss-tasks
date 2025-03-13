@@ -156,11 +156,11 @@ public class TaskEditController {
             currentTask = null;
         }
         TaskIO.rewriteFile(tasksList);
-        TaskViewController.editNewStage.close();
+        TaskManagerController.editNewStage.close();
     }
     @FXML
     public void closeDialogWindow(){
-        TaskViewController.editNewStage.close();
+        TaskManagerController.editNewStage.close();
     }
 
     private Task collectFieldsData(){

@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
-import tasks.controller.TaskViewController;
+import tasks.controller.TaskManagerController;
 import tasks.controller.Notificator;
 import tasks.model.ArrayTaskList;
 import tasks.repository.TaskIO;
@@ -40,7 +40,7 @@ public class Main extends Application {
             log.info("application start");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             Parent root = loader.load();//loader.load(this.getClass().getResource("/fxml/main.fxml"));
-            TaskViewController ctrl= loader.getController();
+            TaskManagerController ctrl= loader.getController();
             service = new TasksService(savedTasksList);
 
             ctrl.setService(service);
