@@ -6,8 +6,11 @@ import org.junit.jupiter.params.provider.CsvSource;
 import tasks.model.ArrayTaskList;
 import tasks.model.Task;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,13 +25,22 @@ class TasksServiceTest {
     })
     @DisplayName("Test valid task creation (Meeting)")
     void testValidTaskCreationECP(String title, String startDateTime, String endDateTime,
-                               boolean isRepeated, String interval, boolean isActive) {
-        // Arrange
-        LocalDate startDate = LocalDate.parse(startDateTime.split(",")[0]);
-        String startTime = startDateTime.split(",")[1].trim();
+                               boolean isRepeated, int interval, boolean isActive) {
+
+        String datePart = startDateTime.split(",")[0]; // Extract the date part
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // Define the date format
+
+        Date startDate = null; // Parse the date
+        try {
+            startDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
 
         // Act
-        Task task = tasksService.buildTask(title, startDate, startTime, null, null, isRepeated, interval, isActive);
+        Task task = tasksService.buildTask(title, startDate, null, isRepeated, interval, isActive);
 
         // Assert
         assertNotNull(task);
@@ -42,17 +54,28 @@ class TasksServiceTest {
     })
     @DisplayName("Test task with equal start and end date (Shopping)")
     void testTaskWithEqualStartAndEndDateECP(String title, String startDateTime, String endDateTime,
-                                          boolean isRepeated, String interval, boolean isActive) {
+                                          boolean isRepeated, int interval, boolean isActive) {
         // Arrange
-        LocalDate startDate = LocalDate.parse(startDateTime.split(",")[0]);
-        String startTime = startDateTime.split(",")[1].trim();
 
-        // Act
-        Task task = tasksService.buildTask(title, startDate, startTime, null, null, isRepeated, interval, isActive);
+        String datePart = startDateTime.split(",")[0]; // Extract the date part
 
-        // Assert
-        assertNotNull(task);
-        assertEquals(title, task.getTitle());
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // Define the date format
+
+        Date startDate = null; // Parse the date
+        try {
+            startDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
+            // Act
+            Task task = tasksService.buildTask(title, startDate, startDate, isRepeated, interval, isActive);
+
+            // Assert
+            assertNotNull(task);
+            assertEquals(title, task.getTitle());
+
+
     }
 
     // Test 3: Task with empty title
@@ -62,14 +85,24 @@ class TasksServiceTest {
     })
     @DisplayName("Test empty title throws exception")
     void testEmptyTitleThrowsExceptionECP(String title, String startDateTime, String endDateTime,
-                                       boolean isRepeated, String interval, boolean isActive) {
-        // Arrange
-        LocalDate startDate = LocalDate.parse(startDateTime.split(",")[0]);
-        String startTime = startDateTime.split(",")[1].trim();
+                                       boolean isRepeated, int interval, boolean isActive) {
+
+        String datePart = startDateTime.split(",")[0]; // Extract the date part
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // Define the date format
+
+        Date startDate = null; // Parse the date
+        try {
+            startDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
 
         // Act & Assert
+        Date finalStartDate = startDate;
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            tasksService.buildTask(title, startDate, startTime, null, null, isRepeated, interval, isActive);
+            tasksService.buildTask(title, finalStartDate, null, isRepeated, interval, isActive);
         });
 
         assertNotNull(exception);
@@ -83,17 +116,35 @@ class TasksServiceTest {
     })
     @DisplayName("Test endDateTime before startDateTime throws exception")
     void testEndDateBeforeStartDateThrowsExceptionECP(String title, String startDateTime, String endDateTime,
-                                                   boolean isRepeated, String interval, boolean isActive) {
+                                                   boolean isRepeated, int interval, boolean isActive) {
         // Arrange
-        LocalDate startDate = LocalDate.parse(startDateTime.split(",")[0]);
-        String startTime = startDateTime.split(",")[1].trim();
+        String datePart = startDateTime.split(",")[0]; // Extract the date part
 
-        LocalDate endDate = LocalDate.parse(endDateTime.split(",")[0]);
-        String endTime = endDateTime.split(",")[1].trim();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // Define the date format
+
+        Date startDate = null; // Parse the date
+        try {
+            startDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
+
+        datePart = endDateTime.split(",")[0]; // Extract the date part
+
+        Date endDate = null; // Parse the date
+        try {
+            endDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
 
         // Act & Assert
+        Date finalStartDate = startDate;
+        Date finalEndDate = endDate;
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            tasksService.buildTask(title, startDate, startTime, endDate, endTime, isRepeated, interval, isActive);
+            tasksService.buildTask(title, finalStartDate, finalEndDate, isRepeated, interval, isActive);
         });
 
         assertNotNull(exception);
@@ -106,14 +157,32 @@ class TasksServiceTest {
     })
     @DisplayName("Test valid task creation with title 'A'")
     void testValidTaskCreationWithABVA(String title, String startDateTime, String endDateTime,
-                                    boolean isRepeated, String interval, boolean isActive) {
+                                    boolean isRepeated, int interval, boolean isActive) {
         // Arrange
-        LocalDate startDate = LocalDate.parse(startDateTime.split(",")[0]);
-        String startTime = startDateTime.split(",")[1].trim();
-        LocalDate endDate = LocalDate.parse(endDateTime.split(",")[0]);
-        String endTime = endDateTime.split(",")[1].trim();
+        String datePart = startDateTime.split(",")[0]; // Extract the date part
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // Define the date format
+
+        Date startDate = null; // Parse the date
+        try {
+            startDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
+
+        datePart = endDateTime.split(",")[0]; // Extract the date part
+
+        Date endDate = null; // Parse the date
+        try {
+            endDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
+
         // Act
-        Task task = tasksService.buildTask(title, startDate, startTime, endDate, endTime, isRepeated, interval, isActive);
+        Task task = tasksService.buildTask(title, startDate, endDate, isRepeated, interval, isActive);
 
         // Assert
         assertNotNull(task);
@@ -128,15 +197,26 @@ class TasksServiceTest {
     })
     @DisplayName("Test title length exceeds limit throws exception")
     void testTitleLengthExceedsLimitBVA(String title, String startDateTime, String endDateTime,
-                                     boolean isRepeated, String interval, boolean isActive) {
+                                     boolean isRepeated, int interval, boolean isActive) {
         // Arrange
-        LocalDate startDate = LocalDate.parse(startDateTime.split(",")[0]);
-        String startTime = startDateTime.split(",")[1].trim();
+        String datePart = startDateTime.split(",")[0]; // Extract the date part
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // Define the date format
+
+        Date startDate = null; // Parse the date
+        try {
+            startDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
+
         String repetitive_title = "A".repeat(256);
 
         // Act & Assert
+        Date finalStartDate = startDate;
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            tasksService.buildTask(repetitive_title, startDate, startTime, null, null, isRepeated, interval, isActive);
+            tasksService.buildTask(repetitive_title, finalStartDate, null, isRepeated, interval, isActive);
         });
 
         assertNotNull(exception);
@@ -150,15 +230,32 @@ class TasksServiceTest {
     })
     @DisplayName("Test repeated task entry created")
     void testRepeatedTaskCreationBVA(String title, String startDateTime, String endDateTime,
-                                  boolean isRepeated, String interval, boolean isActive) {
+                                  boolean isRepeated, int interval, boolean isActive) {
         // Arrange
-        LocalDate startDate = LocalDate.parse(startDateTime.split(",")[0]);
-        String startTime = startDateTime.split(",")[1].trim();
-        LocalDate endDate = LocalDate.parse(endDateTime.split(",")[0]);
-        String endTime = endDateTime.split(",")[1].trim();
+        String datePart = startDateTime.split(",")[0]; // Extract the date part
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // Define the date format
+
+        Date startDate = null; // Parse the date
+        try {
+            startDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
+
+        datePart = endDateTime.split(",")[0]; // Extract the date part
+
+        Date endDate = null; // Parse the date
+        try {
+            endDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
 
         // Act
-        Task task = tasksService.buildTask(title, startDate, startTime, endDate, endTime, isRepeated, interval, isActive);
+        Task task = tasksService.buildTask(title, startDate, endDate, isRepeated, interval, isActive);
 
         // Assert
         assertNotNull(task);
@@ -172,17 +269,35 @@ class TasksServiceTest {
     })
     @DisplayName("Test endDate before startDate throws exception")
     void testEndDateBeforeStartDateThrowsExceptionWithABVA(String title, String startDateTime, String endDateTime,
-                                                        boolean isRepeated, String interval, boolean isActive) {
+                                                        boolean isRepeated, int interval, boolean isActive) {
         // Arrange
-        LocalDate startDate = LocalDate.parse(startDateTime.split(",")[0]);
-        String startTime = startDateTime.split(",")[1].trim();
+        String datePart = startDateTime.split(",")[0]; // Extract the date part
 
-        LocalDate endDate = LocalDate.parse(endDateTime.split(",")[0]);
-        String endTime = endDateTime.split(",")[1].trim();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // Define the date format
+
+        Date startDate = null; // Parse the date
+        try {
+            startDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
+
+        datePart = endDateTime.split(",")[0]; // Extract the date part
+
+        Date endDate = null; // Parse the date
+        try {
+            endDate = formatter.parse(datePart);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Parsed Date: " + startDate);
 
         // Act & Assert
+        Date finalStartDate = startDate;
+        Date finalEndDate = endDate;
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            tasksService.buildTask(title, startDate, startTime, endDate, endTime, isRepeated, interval, isActive);
+            tasksService.buildTask(title, finalStartDate, finalEndDate, isRepeated, interval, isActive);
         });
 
         assertNotNull(exception);
