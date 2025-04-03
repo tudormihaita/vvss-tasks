@@ -19,6 +19,7 @@ import tasks.services.TasksService;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 public class TaskEditController {
@@ -166,16 +167,17 @@ public class TaskEditController {
         incorrectInputMade = false;
         Task result = null;
         try {
-            result = service.buildTask(
-                    fieldTitle.getText(),
-                    datePickerStart.getValue(),
-                    txtFieldTimeStart.getText(),
-                    checkBoxRepeated.isSelected() ? datePickerEnd.getValue() : null,
-                    checkBoxRepeated.isSelected() ? txtFieldTimeEnd.getText() : null,
-                    checkBoxRepeated.isSelected(),
-                    checkBoxRepeated.isSelected() ? fieldInterval.getText() : null,
-                    checkBoxActive.isSelected()
-            );
+            String title = fieldTitle.getText();
+            Date startDateTime = dateService.getDateMergedWithTime(txtFieldTimeStart.getText(), dateService.getDateValueFromLocalDate(datePickerStart.getValue()));
+
+            int interval = 0;
+            Date endDateTime = null;
+            if (checkBoxRepeated.isSelected()) {
+                endDateTime = dateService.getDateMergedWithTime(txtFieldTimeEnd.getText(), dateService.getDateValueFromLocalDate(datePickerEnd.getValue()));
+                interval = dateService.parseFromStringToSeconds(fieldInterval.getText());
+            }
+
+            result = service.buildTask(title, startDateTime, endDateTime, checkBoxRepeated.isSelected(), interval, checkBoxActive.isSelected());
         } catch (RuntimeException e) {
             incorrectInputMade = true;
             try {
