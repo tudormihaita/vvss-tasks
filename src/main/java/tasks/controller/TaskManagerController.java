@@ -54,9 +54,9 @@ public class TaskManagerController {
     @FXML
     private TextField fieldTimeTo;
 
-    public void setService(TasksService service){
-        this.service=service;
-        this.dateService=new DateService(service);
+    public void setService(TasksService tasksService, DateService dateService){
+        this.service=tasksService;
+        this.dateService=dateService;
         this.tasksList=service.getObservableList();
         updateCountLabel(tasksList);
         tasks.setItems(tasksList);
@@ -91,7 +91,7 @@ public class TaskManagerController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/new-edit-task.fxml"));
             Parent root = loader.load();//getClass().getResource("/fxml/new-edit-task.fxml"));
             TaskEditController editCtrl = loader.getController();
-            editCtrl.setService(service);
+            editCtrl.setService(service, dateService);
             editCtrl.setTasksList(tasksList);
             editCtrl.setCurrentTask((Task)mainTable.getSelectionModel().getSelectedItem());
             editNewStage.setScene(new Scene(root, 600, 350));

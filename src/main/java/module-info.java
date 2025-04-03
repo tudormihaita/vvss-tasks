@@ -12,4 +12,6 @@ module tasks {
     exports tasks.controller;
     exports tasks.utils;
     opens tasks.utils to javafx.base;
+    opens tasks.services to javafx.base;
+    exports tasks.services;
 }
