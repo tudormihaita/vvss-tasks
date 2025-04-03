@@ -47,6 +47,10 @@ public class TasksService {
             throw new IllegalArgumentException("Title cannot be an empty string");
         }
 
+        if (title.length() > 255) {
+            throw new IllegalArgumentException("Title is too long");
+        }
+
         Date startDateTime = dateService.getDateMergedWithTime(startTime, dateService.getDateValueFromLocalDate(startDate));
         if (isRepeated) {
             if (endDate == null || endTime == null || endTime.trim().isEmpty()) {
