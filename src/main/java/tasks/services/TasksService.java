@@ -40,25 +40,18 @@ public class TasksService {
         return filtered;
     }
 
-    public Task buildTask(String title, LocalDate startDate, String startTime, LocalDate endDate, String endTime, boolean isRepeated, String intervalText, boolean isActive) {
+    public Task buildTask(String title, Date startDateTime, Date endDateTime, boolean isRepeated, int interval, boolean isActive) {
         Task task;
 
-        if (title == null || title.trim().isEmpty()) {
-            throw new IllegalArgumentException("Title cannot be an empty string");
+        if (title.isEmpty() || title.length() > 255) {
+            throw new IllegalArgumentException("Title must be a non-empty string with a maximum length of 255 characters");
         }
 
-        Date startDateTime = dateService.getDateMergedWithTime(startTime, dateService.getDateValueFromLocalDate(startDate));
         if (isRepeated) {
-            if (endDate == null || endTime == null || endTime.trim().isEmpty()) {
-                throw new IllegalArgumentException("End date and time are required for repeated tasks");
-            }
-
-            Date endDateTime = dateService.getDateMergedWithTime(endTime, dateService.getDateValueFromLocalDate(endDate));
             if (startDateTime.after(endDateTime)) {
                 throw new IllegalArgumentException("Start time must be before end time");
             }
-            int intervalSeconds = dateService.parseFromStringToSeconds(intervalText);
-            task = new Task(title, startDateTime, endDateTime, intervalSeconds);
+            task = new Task(title, startDateTime, endDateTime, interval);
         } else {
             task = new Task(title, startDateTime);
         }
