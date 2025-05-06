@@ -16,7 +16,7 @@ public class Task implements Serializable {
     private boolean active;
 
     private static final Logger log = Logger.getLogger(Task.class.getName());
-    private final SimpleDateFormat sdf;
+    private static  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm";
 
@@ -61,7 +61,7 @@ public class Task implements Serializable {
         this.interval = other.interval;
     }
 
-    public SimpleDateFormat getDateFormat(){
+    public static SimpleDateFormat getDateFormat(){
         return sdf;
     }
 
