@@ -69,8 +69,8 @@ class TaskOperationsTest {
         );
         t1.setActive(true);
         tasksOps.getTasks().add(t1);
-        Date start = sdf.parse("2025-05-03 10:00");
-        Date end = sdf.parse("2025-05-04 10:00");
+        Date start = sdf.parse("2025-05-06 10:00");
+        Date end = sdf.parse("2025-05-07 10:00");
         Iterable<Task> tasks = tasksOps.incoming(start, end);
         List<Task> filtered = StreamSupport.stream(tasks.spliterator(),false).collect(Collectors.toList());
         assertEquals(0, filtered.size());
