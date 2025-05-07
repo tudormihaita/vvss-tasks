@@ -12,7 +12,7 @@ import tasks.controller.Notificator;
 import tasks.model.ArrayTaskList;
 import tasks.repository.TaskIO;
 import tasks.services.DateService;
-import tasks.services.TasksService;
+import tasks.services.TaskService;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class Main extends Application {
     private static ClassLoader classLoader = Main.class.getClassLoader();
     public static File savedTasksFile = new File("data/tasks.txt");
 
-    private TasksService tasksService;
+    private TaskService tasksService;
     private DateService dateService;
 
     @Override
@@ -45,7 +45,7 @@ public class Main extends Application {
             TaskManagerController ctrl= loader.getController();
 
             dateService = new DateService();
-            tasksService = new TasksService(savedTasksList, dateService);
+            tasksService = new TaskService(savedTasksList, dateService);
 
             ctrl.setService(tasksService, dateService);
             primaryStage.setTitle("Task Manager");

@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import tasks.model.Task;
 import tasks.services.DateService;
-import tasks.services.TasksService;
+import tasks.services.TaskService;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -40,7 +40,7 @@ public class TaskEditController {
 
     private Task currentTask;
     private ObservableList<Task> tasksList;
-    private TasksService service;
+    private TaskService service;
     private DateService dateService;
 
 
@@ -70,7 +70,7 @@ public class TaskEditController {
         this.tasksList = tasksList;
     }
 
-    public void setService(TasksService tasksService, DateService dateService) {
+    public void setService(TaskService tasksService, DateService dateService) {
         this.service = tasksService;
         this.dateService = dateService;
     }

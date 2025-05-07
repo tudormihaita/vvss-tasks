@@ -7,15 +7,14 @@ import tasks.model.Task;
 import tasks.repository.TaskIO;
 import tasks.utils.TasksOperations;
 
-import java.time.LocalDate;
 import java.util.Date;
 
-public class TasksService {
+public class TaskService {
 
     private final ArrayTaskList tasks;
     private final DateService dateService;
 
-    public TasksService(ArrayTaskList tasks, DateService dateService) {
+    public TaskService(ArrayTaskList tasks, DateService dateService) {
         this.tasks = tasks;
         this.dateService = dateService;
     }

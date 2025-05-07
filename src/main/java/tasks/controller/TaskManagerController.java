@@ -16,7 +16,7 @@ import org.apache.log4j.Logger;
 import tasks.model.Task;
 import tasks.services.DateService;
 import tasks.repository.TaskIO;
-import tasks.services.TasksService;
+import tasks.services.TaskService;
 import tasks.view.Main;
 
 import java.io.IOException;
@@ -27,7 +27,7 @@ import java.util.Date;
 public class TaskManagerController {
     private static final Logger log = Logger.getLogger(TaskManagerController.class.getName());
     public ObservableList<Task> tasksList;
-    TasksService service;
+    TaskService service;
     DateService dateService;
 
     public static Stage editNewStage;
@@ -54,7 +54,7 @@ public class TaskManagerController {
     @FXML
     private TextField fieldTimeTo;
 
-    public void setService(TasksService tasksService, DateService dateService){
+    public void setService(TaskService tasksService, DateService dateService){
         this.service=tasksService;
         this.dateService=dateService;
         this.tasksList=service.getObservableList();

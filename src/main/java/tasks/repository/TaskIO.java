@@ -299,4 +299,14 @@ public class TaskIO {
             log.error("IO exception reading or writing file");
         }
     }
+    public static void insertTask(Task newTask, ObservableList<Task> tasks) {
+        Task task = new Task(newTask.getTitle(), newTask.getStartTime(), newTask.getEndTime(), newTask.getRepeatInterval());
+        for (Task value : tasks) {
+            if (task.equals(value)) {
+                throw new IllegalArgumentException("The given task already exists in the tasks list!");
+            }
+        }
+        tasks.add(task);
+        rewriteFile(tasks);
+    }
 }
