@@ -13,7 +13,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TasksServiceIntegrationRepoTest {
+class TaskServiceIntegrationRepoTest {
     @Mock
     private ArrayTaskList tasks;
 
