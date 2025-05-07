@@ -269,7 +269,7 @@ class TaskServiceTest {
 
 
     @Test
-    public void getObservableListTest() {
+    public void testGetObservableList() {
         Task task1 = getMockTask("Task 1", new Date());
         Task task2 = getMockTask("Task 2", new Date());
         Mockito.when(tasks.getAll()).thenReturn(Arrays.asList(task1, task2));
