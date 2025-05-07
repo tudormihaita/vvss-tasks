@@ -142,4 +142,29 @@ class TaskOperationsTest {
         assertEquals(filtered.get(0), t1);
         assertEquals(filtered.get(1), t2);
     }
+
+    @Test
+    @DisplayName("FC02_TC07")
+    void testFC02_TC07() throws ParseException {
+        Task t1 = new Task(
+                "mock title",
+                sdf.parse("2025-05-05 12:00"),
+                sdf.parse("2025-05-06 12:00"),
+                30
+        );
+        t1.setActive(true);
+        Task t2 = new Task(
+                "mock title",
+                sdf.parse("2025-05-05 12:00"),
+                sdf.parse("2025-05-05 12:00"),
+                30
+        );
+        t2.setActive(true);
+        tasksOps.getTasks().add(t1);
+        tasksOps.getTasks().add(t2);
+
+        assertThrows(NullPointerException.class, () -> {
+            tasksOps.incoming(null, null);
+        });
+    }
 }
