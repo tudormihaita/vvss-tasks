@@ -122,8 +122,8 @@
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-<!--        <version>2.22.1</version>-->
-        <version>3.2.5</version>
+        <version>2.22.1</version>
+<!--        <version>3.2.5</version>-->
         <configuration>
           <!--                <failIfNoTests>false</failIfNoTests>-->
         </configuration>
