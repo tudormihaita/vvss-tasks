@@ -32,14 +32,22 @@ class TaskServiceTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
+
     // Test 1: Valid Task with title "Meeting"
-    @ParameterizedTest
-    @CsvSource({
-            "'Meeting', '2025-04-03, 16:00', null, false, 0, true"
-    })
+//    @ParameterizedTest
+//    @CsvSource({
+//            "'Meeting', '2025-04-03, 16:00', null, false, 0, true"
+//    })
+    @Test
     @DisplayName("Test valid task creation (Meeting)")
-    void testValidTaskCreationECP(String title, String startDateTime, String endDateTime,
-                               boolean isRepeated, int interval, boolean isActive) {
+    void testValidTaskCreationECP() {
+        // Arrange
+        String title = "Meeting";
+        String startDateTime = "2025-04-03, 16:00";
+        String endDateTime = null;
+        boolean isRepeated = false;
+        int interval = 0;
+        boolean isActive = true;
 
         String datePart = startDateTime.split(",")[0]; // Extract the date part
 
@@ -95,13 +103,20 @@ class TaskServiceTest {
     }
 
     // Test 3: Task with empty title
-    @ParameterizedTest
-    @CsvSource({
-            "'', '2025-04-03, 16:00', '2025-04-04, 16:00', true, 3600, true"
-    })
+//    @ParameterizedTest
+//    @CsvSource({
+//            "'', '2025-04-03, 16:00', '2025-04-04, 16:00', true, 3600, true"
+//    })
+    @Test
     @DisplayName("Test empty title throws exception")
-    void testEmptyTitleThrowsExceptionECP(String title, String startDateTime, String endDateTime,
-                                       boolean isRepeated, int interval, boolean isActive) {
+    void testEmptyTitleThrowsExceptionECP() {
+        // Arrange
+        String title = "";
+        String startDateTime = "2025-04-03, 16:00";
+        String endDateTime = "2025-04-04, 16:00";
+        boolean isRepeated = true;
+        int interval = 3600;
+        boolean isActive = true;
 
         String datePart = startDateTime.split(",")[0]; // Extract the date part
 
@@ -214,14 +229,21 @@ class TaskServiceTest {
     }
 
     // Test 7: Repeated task entry created (valid scenario)
-    @ParameterizedTest
-    @CsvSource({
-            "'Task', '2025-04-03, 10:00', '2025-04-03, 10:01', true, 6000, true"
-    })
+//    @ParameterizedTest
+//    @CsvSource({
+//            "'Task', '2025-04-03, 10:00', '2025-04-03, 10:01', true, 6000, true"
+//    })
+    @Test
     @DisplayName("Test repeated task entry created")
-    void testRepeatedTaskCreationBVA(String title, String startDateTime, String endDateTime,
-                                  boolean isRepeated, int interval, boolean isActive) throws ParseException {
+    void testRepeatedTaskCreationBVA() throws ParseException {
         // Arrange
+        String title = "Task";
+        String startDateTime = "2025-04-03, 10:00";
+        String endDateTime = "2025-04-03, 10:01";
+        boolean isRepeated = true;
+        int interval = 6000;
+        boolean isActive = true;
+
         Date startDate = null; // Parse the date
         startDate = formatter.parse(startDateTime);
         System.out.println("Parsed Date: " + startDate);
@@ -240,14 +262,21 @@ class TaskServiceTest {
     }
 
     // Test 8: End date before start date (exception thrown)
-    @ParameterizedTest
-    @CsvSource({
-            "'Task', '2025-04-03, 10:00', '2025-04-03, 09:59', true, 60, false"
-    })
+//    @ParameterizedTest
+//    @CsvSource({
+//            "'Task', '2025-04-03, 10:00', '2025-04-03, 09:59', true, 60, false"
+//    })
+    @Test
     @DisplayName("Test endDate before startDate throws exception")
-    void testEndDateBeforeStartDateThrowsExceptionWithABVA(String title, String startDateTime, String endDateTime,
-                                                        boolean isRepeated, int interval, boolean isActive) throws ParseException {
+    void testEndDateBeforeStartDateThrowsExceptionWithABVA() throws ParseException {
         // Arrange
+        String title = "Task";
+        String startDateTime = "2025-04-03, 10:00";
+        String endDateTime = "2025-04-03, 09:59";
+        boolean isRepeated = true;
+        int interval = 60;
+        boolean isActive = false;
+
         Date startDate = null; // Parse the date
         startDate = formatter.parse(startDateTime);
         System.out.println("Parsed Date: " + startDate);

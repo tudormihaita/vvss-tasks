@@ -12,7 +12,7 @@
 <p style="text-align: center;"><img alt="TestLink logo" title="configure using $tlCfg->document_generator->company_logo"  width= height= src="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/images/tl-logo-transparent-25.png" /></p></div>
 <div class="doc_title"><p>Test Specification</p></div>
 <div class="doc_title" style="text-align:left;margin: auto;"><p>Test Project: Proiect234<br/>Test Suite: Proiect234 - mtir3368_BBT</p></div>
-<div class="summary"><p id="printedby">Printed by TestLink on 03/04/2025</p></div>
+<div class="summary"><p id="printedby">Printed by TestLink on 04/04/2025</p></div>
 <div class="pagefooter" id="copyright">2012 &copy; TestLink Community</div>
 <h1 class="general" style="page-break-before: always">Table Of Contents</h1><div class="toc"><p style="padding-left: 20px;"><b><a href="#toc_1">1.mtir3368_BBT</a></b></p>
 <p style="padding-left: 45px;"><a href="#toc_tc25130">Prj234-37: AddTask_ECP_Valid</a></p><p style="padding-left: 45px;"><a href="#toc_tc25132">Prj234-38: AddTask_ECP_NonValid</a></p><p style="padding-left: 45px;"><a href="#toc_tc25134">Prj234-39: AddTask_BVA_Valid</a></p><p style="padding-left: 45px;"><a href="#toc_tc25136">Prj234-40: AddTask_BVA_NonValid</a></p></div><h1 class="doclevel" >Scope</h1>
@@ -29,7 +29,7 @@
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
 <tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >tasks.service.TaskServiceTest</td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" >tasks.service.TaskServuceTest#testAddTaskECPValid</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >tasks.service.TaskServiceTest#testAddTaskECPValid</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">mtir3368_F01:  AddTask [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
@@ -43,7 +43,7 @@ len(title) = 0</p>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
 <tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >tasks.service.TaskServiceTest</td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" >tasks.service.TaskServuceTest#testAddTaskECPNonValid</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >tasks.service.TaskServiceTest#testAddTaskECPNonValid</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">mtir3368_F01:  AddTask [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
@@ -57,7 +57,7 @@ endDateTime = 2025/04/01 10:01 &gt; startDateTime = 2025/04/01 10:00</p>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
 <tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >tasks.service.TaskServiceTest</td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" >tasks.service.TaskServuceTest#testAddTaskBVAValid</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >tasks.service.TaskServiceTest#testAddTaskBVAValid</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">mtir3368_F01:  AddTask [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
@@ -71,7 +71,7 @@ endDateTime = 2025/04/01 10:01 &gt; startDateTime = 2025/04/01 10:00</p>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
 <tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >tasks.service.TaskServiceTest</td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" >tasks.service.TaskServuceTest#testAddTaskBVAValid</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >tasks.service.TaskServiceTest#testAddTaskBVAValid</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">mtir3368_F01:  AddTask [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
